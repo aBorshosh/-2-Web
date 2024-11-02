@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Налаштування мета-тегів для кодування та адаптивності -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Low Club</title> <!-- Заголовок сторінки -->
+    <link rel="stylesheet" href="style.css"> <!-- Підключення CSS стилів -->
+</head>
+<body>
+    <!-- Заголовок сайту -->
+    <header>
+        <div class="container">
+            <h1>Low Club</h1> 
+            <nav>
+                <ul>
+                    <!-- Основне меню навігації -->
+                    <li><a href="lowclub.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li> 
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#">Contacts</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основний контент -->
+   <section class="main">
+        <div class="container overlay-content">
+            <h2>Welcome to Low Club</h2> 
+            <p>We bring together enthusiasts of retro cars such as VAZ, GAZ, ZAZ, and more. Join us for exciting events and car shows!</p>
+            <a href="about.html" class="btn">Learn More</a> 
+        </div>
+    </section>
+
+    <!-- Розділ з подіями -->
+    <section class="events">
+        <div class="container">
+            <h2>Upcoming Events</h2> 
+            <div class="event">
+                <h3>Lowville 2011</h3> 
+                <p>Date: Jun 13, 2011</p> 
+                <p>Location: Kyiv</p> 
+                <a href="lowville_2011.html" class="btn">Details</a> 
+            </div>
+        </div>
+    </section>
+
+    <!-- Розділ з галереєю -->
+    <section class="gallery">
+        <div class="container">
+            <h2><a href="gallery.html" title="Open gallery">Gallery</a></h2> 
+            <div class="gallery-grid">
+                <!-- Елементи галереї з картинками -->
+                <div class="gallery-item">
+                    <img src="https://a.d-cd.net/2333f24s-960.jpg" alt="Retro Car 1" onclick="openModal(this)"> <!-- this посилається на цей елемент щоб в подальшому використовувати scr та alt з нього-->
+                </div>
+                <div class="gallery-item">
+                    <img src="https://a.d-cd.net/d753f24s-960.jpg" alt="Retro Car 2" onclick="openModal(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://a.d-cd.net/2cdbf24s-960.jpg" alt="Retro Car 3" onclick="openModal(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://a.d-cd.net/8b33f24s-960.jpg" alt="Retro Car 4" onclick="openModal(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://a.d-cd.net/3753f24s-960.jpg" alt="Retro Car 5" onclick="openModal(this)">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://a.d-cd.net/bc53f24s-960.jpg" alt="Retro Car 6" onclick="openModal(this)">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Модальне вікно для повнорозмірних зображень -->
+    <div id="modal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span> 
+        <img class="modal-content" id="full-image"> 
+        <div id="caption"></div> 
+    </div>
+
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Low Club. All rights reserved.</p> 
+        </div>
+    </footer>
+
+    <!-- JavaScript для відкриття зображення -->
+    <script>
+        function openModal(element) {
+            var modal = document.getElementById("modal"); // знаходить модальне вікно
+            var modalImg = document.getElementById("full-image"); // дістає елемент з зображенням
+            var captionText = document.getElementById("caption"); // дістає елемент для підпису
+
+            modal.style.display = "block"; // відкриває модальне вікно
+            modalImg.src = element.src; // встановлює зображення для перегляду
+            captionText.innerHTML = element.alt; // встановлює підпис під зображенням
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("modal"); // знаходить модальне вікно
+            modal.style.display = "none"; // закриває його
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+/* скидання стандартних відступів і полів у всіх елементів */
+* {
+    margin: 0; /* Скидання зовнішніх відступів */
+    padding: 0; /* Скидання внутрішніх відступів */
+    box-sizing: border-box; 
+}
+
+/* встановлення висоти для html і body */
+html, body {
+    height: 100%; 
+    margin: 0; /* видалення зовн. полів */
+}
+
+body {
+    display: flex; /* для розташування елементів. Властивість display: flex; дозволяє всім елементам 
+    автоматично розподілятися по доступному простору, вирівнюватися та адаптуватися під розміри вкладки без необхідності постійно коригувати їх вручну.*/
+    flex-direction: column; /* вертикальне розташування контенту */
+    font-family: Arial, sans-serif; 
+    background-color: #f4f4f4; 
+    color: #333; 
+    min-height: 100%;
+}
+
+/* Основний контейнер для контенту */
+.container {
+    width: 90%; 
+    max-width: 1200px; 
+    margin: 0 auto; /* центрує контейнер на сторінці */
+    flex: 1; /* дозволяє контейнеру займати доступний простір */
+}
+
+header {
+    background-color: #333;
+    color: #fff; 
+    padding: 20px 0; /* внутрішні відступи з верху і знизу */
+    position: sticky; /* залишає заголовок на верху під час прокрутки */
+    top: 0; /* прив'язує заголовок до верхньої частини вікна */
+    z-index: 1000; /* встановлює порядок розташування для перекриття інших елементів */
+}
+
+header .container {
+    display: flex; 
+    justify-content: space-between; /* розподіл простору між елементами 
+    Властивість justify-content визначає, як браузер розподіляє простір між елементами вмісту та
+     навколо них уздовж головної осі контейнера flex і вбудованої осі контейнерів grid і multicol.*/
+    align-items: center; /* вирівнення елементів по вертикалі */
+}
+
+header h1 {
+    font-size: 36px; 
+}
+
+/* Стилі для навігаційного меню */
+nav ul {
+    list-style: none; /* вимкнення маркерів для списків */
+    display: flex; 
+    justify-content: flex-end; /* елементи до правого краю */
+    margin-right: 0; 
+}
+
+nav ul li {
+    margin-left: 20px; 
+}
+
+nav ul li a {
+    color: #fff; 
+    text-decoration: none; 
+    font-size: 16px; 
+}
+
+/* Основний контент з фоном */
+.main {
+    background-image: url('https://a.d-cd.net/3828f24s-960.jpg'); 
+    background-size: cover; /* масштабує зображення, щоб покрити весь блок */
+    background-position: center; 
+    color: #fff; 
+    padding: 50px 0; 
+    position: relative; 
+    text-align: center; 
+}
+
+.main::before {
+    content: ""; /* пустий контент перед основним контентом */
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    background: rgba(0, 0, 0, 0.4); 
+}
+
+.overlay-content {
+    position: relative; /* встановлення позицій для змісту, який буде зверху */
+    z-index: 1; /* + порядок розташування для цього елемента */
+    color: #fff; 
+}
+
+.main h2 {
+    font-size: 42px; 
+    margin-bottom: 20px; 
+}
+
+.main p {
+    font-size: 18px; 
+    margin-bottom: 30px; 
+}
+
+/* Стилі для кнопок в основному контенті */
+.main .btn {
+    background-color: #333; 
+    color: #fff; 
+    padding: 10px 20px; 
+    text-decoration: none; 
+    font-size: 16px; 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease; /* реалізований плавний перехід кольору фону при наведенні */
+}
+
+.main .btn:hover {
+    background-color: #777; /* фон кнопки світлішає при наведенні */
+}
+
+/* Розділ подій */
+.events {
+    background-color: #eaeaea; 
+    padding: 50px 0; 
+    text-align: center; 
+}
+
+.events h2 {
+    font-size: 36px; 
+    margin-bottom: 40px; 
+}
+
+/* Стилі для окремої події */
+.event {
+    margin-bottom: 30px; 
+    padding: 20px; 
+    background-color: #fff;
+    border-radius: 10px; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* тінь для створення глибини */
+}
+
+.event h3 {
+    font-size: 28px; 
+    margin-bottom: 10px; 
+}
+
+.event p {
+    font-size: 16px; 
+    margin-bottom: 15px; 
+}
+
+/* Стилі для кнопки в розділі подій */
+.event .btn {
+    background-color: #333; 
+    color: #fff; 
+    padding: 10px 15px; 
+    text-decoration: none; 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease; /* плавний перехід кольору фону при наведенні */
+}
+
+.event .btn:hover {
+    background-color: #777; /* фон кнопки світлішає при наведенні */
+}
+
+/* Розділ галереї */
+.gallery {
+    background-color: #f4f4f4; 
+    padding: 50px 0; 
+    text-align: center; 
+}
+
+.gallery h2 {
+    font-size: 36px; 
+    margin-bottom: 40px;
+}
+
+/* Стилі для заголовка галереї з посиланнями */
+.gallery h2 a {
+    color: inherit; /* наслідує колір тексту */
+    text-decoration: none; 
+    transition: color 0.3s ease; 
+}
+
+.gallery h2 a:hover {
+    color: #555; 
+}
+
+/* Сітка для галереї */
+.gallery-grid {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); /* створює три колонки однакової ширини */
+    gap: 20px; /* відступи між елементами сітки */
+}
+
+/* Стилі для елементів галереї */
+.gallery-item img {
+    width: 100%; 
+    height: auto; 
+    border-radius: 10px; 
+    cursor: pointer; /* змінює курсор на вказівник при наведенні */
+    transition: transform 0.3s ease; 
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05); /* Збільшує зображення на 5% при наведенні */
+}
+
+/* Стилі для модального вікна */
+.modal {
+    display: none; /* закрите за замовчуванням */
+    position: fixed; /* фіксована позиція вікна */
+    z-index: 1000; /* високий порядок розташування для перекриття інших елементів */
+    padding-top: 100px; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.9); 
+}
+
+.modal-content {
+    margin: auto; 
+    display: block; 
+    width: 100; 
+}
+
+/* Стилі для підпису під зображенням */
+#caption {
+    text-align: center; 
+    color: #fff; 
+    font-size: 20px; 
+    padding: 10px 0; 
+}
+
+/* Стилі для кнопки закриття модального вікна */
+.close {
+    position: absolute; 
+    top: 30px; 
+    right: 50px; 
+    color: #fff; 
+    font-size: 35px; 
+    cursor: pointer; 
+}
+
+/* Стилі для підвалу */
+footer {
+    background-color: #333; 
+    color: #fff; 
+    text-align: center;
+    padding: 20px 0; 
+    position: relative; 
+    width: 100%; 
+    bottom: 0; 
+    flex-shrink: 0; 
+    margin-top: auto;
+}
